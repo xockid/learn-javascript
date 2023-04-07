@@ -4,62 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>끝말잇기</title>
+  <title>쿵쿵따</title>
 </head>
 <body>
-  <div><span id="order">1</span>번 째 참가자</div>
-  <div>제시어: <span id="word"></span></div>
-  <input type="text" name="word" id="wordSection">
-  <button>입력</button>
+  <h3>쿵쿵따</h3>
+  <ul>
+    <li>참가자 수를 입력하세요.</li>
+    <li>제시어를 입력하세요.</li>
+    <li>게임을 계속 진행하세요.</li>
+    <li>쿵쿵따는 세 글자 단어만 입력 가능합니다.</li>
+  </ul>
 
-  <script>
-    const num = Number(prompt('참가자 수를 입력하세요.'));
-    const $button = document.querySelector('button');
-    const $input = document.querySelector('input');
-    const $word = document.querySelector('#word');
-    const $order = document.querySelector('#order');
-    let word; //제시어
-    let newWord; //현재 단어
+  
+  <!-- 3장 셀프체크 주제는 끝말잇기 게임을 응용해 쿵쿵따 게임 만들기입니다. 그저 입력할 수 있는 단어를 세 글자로 고정하면 됩니다. 다만, 세 글자가 아니라면 다시 입력하라고 표시하세요. 또한, 초반에 prompt 함수를 사용해 몇 명이 참가할지를 선택할 때 사용자가 취소를 누르면 다음 코드가 실행되지 않게 처리하면 좋을 것 같습니다
 
-    const onClickButton = () => {
-      if (!word) { //제시어가 비어 있는가?
-        word = newWord; //입력한 단어가 제시어가 된다.
-        $word.textContent = word; //화면에 제시어 표시
-        const order = Number($order.textContent);
-        if (order + 1 > num) {
-          $order.textContent = 1;
-        } else {
-          $order.textContent = order + 1;
-        }
-        $input.value = '';
-        $input.focus();
-      }
-      else { //비어 있지 않다.
-        if (word[word.length - 1] === newWord[0]) { //입력한 단어가 올바른가?
-          word = newWord; //현재 단어를 제시어에 저장한다.
-          $word.textContent = word; //화면에 제시어 표시
-          const order = Number($order.textContent);
-          if (order + 1 > num) {
-            $order.textContent = 1;
-          } else {
-            $order.textContent = order + 1;
-          }
-          $input.value = '';
-          $input.focus();
-        } else { //올바르지 않다.
-          alert('틀렸습니다!')
-          $input.value = '';
-          $input.focus();
-        }
-      }
-    };
-    const onInput = (e) => {
-      newWord = e.target.value; //입력한 단어를 현재 단어로
-    };
-    
-    $button.addEventListener('click', onClickButton);
-    $input.addEventListener('input', onInput);
-    
-  </script>
+힌트 사용자가 input 이벤트를 발생시킬 때 입력한 글자가 세 글자인지 확인합니다 -->
+  <!-- JS -->
+  <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
